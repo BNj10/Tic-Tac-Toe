@@ -1,18 +1,12 @@
 import './App.css'
-<<<<<<< HEAD
-import Button from './components/button'
-function App() {
-  return (
-    <>
-      <Button />
-=======
+import { BrowserRouter } from 'react-router-dom';
 import Home from "./pages/home"
+
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Home />  
->>>>>>> develop
-    </>
+    </BrowserRouter>
   )
 }
 
