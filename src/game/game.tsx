@@ -1,6 +1,7 @@
 import Board from '../components/Board'
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import calculateWinner from '../utils/calculate-winner'
 
 export default function Game() {
   const location = useLocation();
