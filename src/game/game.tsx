@@ -14,18 +14,14 @@ export default function Game() {
   const xIsNext = firstPlayer === 'X' ? currentMove % 2 === 0 : currentMove % 2 !== 0;
   const currentSquares = history[currentMove];
 
-  function handlePlay(nextSquares) {
+ function handlePlay(nextSquares: (string | null)[]) {
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);
-  }
-
-  function jumpTo(nextMove) {
-    setCurrentMove(nextMove);
-  }
+}
 
   // Handle square clicks
-  function handleClick(i) {
+  function handleClick(i : number) {
     if (calculateWinner(currentSquares) || currentSquares[i]) {
       return;
     }
