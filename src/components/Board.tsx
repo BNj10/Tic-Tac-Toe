@@ -1,16 +1,23 @@
-export default function GameBoard()
-{
+import Square from './square'
 
+
+type GameBoardProps = {
+    squares: (string | null)[];
+    onSquareClick: (index: number) => void;
+};
+
+export default function GameBoard({ squares, onSquareClick }: GameBoardProps)
+{
     return(
-        <div className="grid grid-cols-3 bg-white rounded-2xl shadow-lg w-72 h-72 mb-6">
-            {Array(9).fill(null).map((_, i) => (
-            <div
-                key={i}
-                className="border border-gray-300 flex items-center justify-center text-4xl font-bold text-gray-600"
-            >
-                {/* X or O goes here later */}
-            </div>
+        <div className="grid grid-cols-3 gap-1 bg-gray-400 rounded-2xl shadow-lg w-80 h-80">
+            {squares.map((value, i) => (
+                <Square
+                    key={i}
+                    value={value}
+                    onSquareClick={() => onSquareClick(i)}
+                />
             ))}
         </div>
     )
 }
+
